@@ -1,3 +1,3 @@
 # serviceauthcentral-gcp-tofu
 
-OpenTofu module for deploying ServiceAuthCentral to GCP
+OpenTofu module for deploying ServiceAuthCentral token API
