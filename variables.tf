@@ -10,7 +10,7 @@ variable "name" {
 }
 
 variable "project_id" {
-  description = "The ID of the GCP project"
+  description = "The GCP project id"
   type        = string
 }
 
@@ -53,4 +53,5 @@ variable "sac_user_provider_github_clientid" {
 variable "sac_user_provider_github_clientsecret" {
   description = "The SAC_USER_PROVIDER_GITHUB_CLIENTSECRET envirionment variable specifying the GitHub client secret"
   type        = string
+  sensitive   = true
 }
