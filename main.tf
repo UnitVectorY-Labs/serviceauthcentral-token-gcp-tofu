@@ -75,7 +75,7 @@ locals {
 # Service account for Cloud Run services
 resource "google_service_account" "cloud_run_sa" {
   project      = var.project_id
-  account_id   = "sac-token-cr-${var.name}"
+  account_id   = "sactcr-${var.name}"
   display_name = "serviceauthcentral Cloud Run (${var.name}) service account"
 }
 
