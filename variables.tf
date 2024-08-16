@@ -24,10 +24,14 @@ variable "region_db_names" {
   type        = map(string)
 }
 
-variable "kms_existing_key" {
-  description = "Boolean value indicating if an existing KMS key should be used"
-  type        = bool
-  default     = false
+variable "key_ring_name" {
+  description = "The key ring name"
+  type        = string
+}
+
+variable "sign_key_name" {
+  description = "The sign key name"
+  type        = string
 }
 
 variable "sac_issuer" {
