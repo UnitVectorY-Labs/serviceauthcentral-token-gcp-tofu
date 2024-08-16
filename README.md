@@ -17,6 +17,8 @@ module "serviceauthcentral_token_gcp" {
     region_db_names = {
         "us-east1" = "sac-us-east1"
     }
+    key_ring_name = "mykeyring"
+    sign_key_name = "mykey"
     sac_issuer = "https://api.example.com"
     sac_cors_origins = "https://portal.example.com"
     sac_user_redirecturi = "https://portal.example.com/callback"
