@@ -37,6 +37,7 @@ resource "google_cloud_run_v2_service" "serviceauthcentral-token" {
     service_account = google_service_account.cloud_run_sa.email
 
     containers {
+      # TODO: This is hard coded to pull in the dev image from GitHub, this should pull in a released version
       image = "us-docker.pkg.dev/${var.project_id}/ghcr/unitvectory-labs/serviceauthcentral-token:dev"
 
       env {
