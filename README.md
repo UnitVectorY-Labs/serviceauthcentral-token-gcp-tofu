@@ -60,6 +60,9 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_artifact_registry_host"></a> [artifact\_registry\_host](#input\_artifact\_registry\_host) | The name of the Artifact Registry repository | `string` | `"us-docker.pkg.dev"` | no |
+| <a name="input_artifact_registry_name"></a> [artifact\_registry\_name](#input\_artifact\_registry\_name) | The name of the Artifact Registry repository | `string` | n/a | yes |
+| <a name="input_artifact_registry_project_id"></a> [artifact\_registry\_project\_id](#input\_artifact\_registry\_project\_id) | The project to use for Artifact Registry. Will default to the project\_id if not set. | `string` | `null` | no |
 | <a name="input_key_ring_name"></a> [key\_ring\_name](#input\_key\_ring\_name) | The key ring name | `string` | n/a | yes |
 | <a name="input_name"></a> [name](#input\_name) | The name of the application | `string` | `"serviceauthcentral"` | no |
 | <a name="input_project_id"></a> [project\_id](#input\_project\_id) | The GCP project id | `string` | n/a | yes |
@@ -70,6 +73,7 @@ No modules.
 | <a name="input_sac_user_provider_github_clientid"></a> [sac\_user\_provider\_github\_clientid](#input\_sac\_user\_provider\_github\_clientid) | The SAC\_USER\_PROVIDER\_GITHUB\_CLIENTID envirionment variable specifying the GitHub client id | `string` | n/a | yes |
 | <a name="input_sac_user_provider_github_clientsecret"></a> [sac\_user\_provider\_github\_clientsecret](#input\_sac\_user\_provider\_github\_clientsecret) | The SAC\_USER\_PROVIDER\_GITHUB\_CLIENTSECRET envirionment variable specifying the GitHub client secret | `string` | n/a | yes |
 | <a name="input_sac_user_redirecturi"></a> [sac\_user\_redirecturi](#input\_sac\_user\_redirecturi) | The SAC\_USER\_REDIRECTURI envirionment variable specifying the redirect uri | `string` | n/a | yes |
+| <a name="input_serviceauthcentral_token_tag"></a> [serviceauthcentral\_token\_tag](#input\_serviceauthcentral\_token\_tag) | The tag for the serviceauthcentral token image to deploy | `string` | `"dev"` | no |
 | <a name="input_sign_key_name"></a> [sign\_key\_name](#input\_sign\_key\_name) | The sign key name | `string` | n/a | yes |
 
 ## Outputs
