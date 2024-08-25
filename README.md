@@ -78,5 +78,7 @@ No modules.
 
 ## Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_region_service_map"></a> [region\_service\_map](#output\_region\_service\_map) | n/a |
 <!-- END_TF_DOCS -->
