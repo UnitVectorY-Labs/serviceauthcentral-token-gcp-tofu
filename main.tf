@@ -82,13 +82,3 @@ resource "google_cloud_run_v2_service" "serviceauthcentral-token" {
     }
   }
 }
-
-resource "google_cloud_run_v2_service_iam_member" "unauthenticated_invoker" {
-  for_each = toset(var.regions)
-  project  = var.project_id
-  location = each.value
-  name     = "${var.name}-token-${each.value}"
-  role     = "roles/run.invoker"
-  member   = "allUsers"
-  depends_on = [ google_cloud_run_v2_service.serviceauthcentral-token ]
-}
