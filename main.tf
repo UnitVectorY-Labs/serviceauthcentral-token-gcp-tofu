@@ -19,9 +19,17 @@ resource "google_service_account" "cloud_run_sa" {
 }
 
 # IAM role to grant Firestore write permissions to Cloud Run service account
-resource "google_project_iam_member" "firestore_viewer_role" {
+# The token service is almost entirely read-only, but it does need to write to Firestore for the user provider
+resource "google_project_iam_member" "firestore_user_role" {
   project = var.project_id
-  role    = "roles/datastore.viewer"
+  role    = "roles/datastore.user"
+  member  = "serviceAccount:${google_service_account.cloud_run_sa.email}"
+}
+
+# IAM role to grant KMS read permissions to Cloud Run service account
+resource "google_project_iam_member" "kms_viewer_role" {
+  project = var.project_id
+  role    = "roles/cloudkms.viewer"
   member  = "serviceAccount:${google_service_account.cloud_run_sa.email}"
 }
 
