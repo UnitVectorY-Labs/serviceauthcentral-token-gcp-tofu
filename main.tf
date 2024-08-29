@@ -25,6 +25,23 @@ resource "google_project_iam_member" "firestore_viewer_role" {
   member  = "serviceAccount:${google_service_account.cloud_run_sa.email}"
 }
 
+data "google_kms_key_ring" "key_ring" {
+  name     = var.key_ring_name
+  location = var.key_location
+}
+
+data "google_kms_crypto_key" "sign_key" {
+  name     = var.sign_key_name
+  key_ring = data.google_kms_key_ring.my_key_ring.id
+}
+
+# Grant KMS sign and get public keys permissions to Cloud Run service account
+resource "google_kms_crypto_key_iam_member" "signer" {
+  crypto_key_id = google_kms_crypto_key.key.id
+  role          = "roles/cloudkms.signerVerifier"
+  member        = "serviceAccount:${google_service_account.cloud_run_sa.email}"
+}
+
 locals {
   final_artifact_registry_project_id = coalesce(var.artifact_registry_project_id, var.project_id)
 }

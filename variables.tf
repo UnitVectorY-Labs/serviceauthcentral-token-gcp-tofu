@@ -13,7 +13,7 @@ variable "project_id" {
   description = "The GCP project id"
   type        = string
   validation {
-    condition   = can(regex("^[a-z]([-a-z0-9]{0,61}[a-z0-9])?$", var.project_id))
+    condition     = can(regex("^[a-z]([-a-z0-9]{0,61}[a-z0-9])?$", var.project_id))
     error_message = "The project_id is a GCP project name which starts with a lowercase letter, is 1 to 63 characters long, contains only lowercase letters, digits, and hyphens, and does not end with a hyphen."
   }
 }
@@ -26,6 +26,12 @@ variable "regions" {
 variable "region_db_names" {
   description = "Map of regions to their respective database names"
   type        = map(string)
+}
+
+variable "key_location" {
+  description = "The location of the key"
+  type        = string
+  default     = "global"
 }
 
 variable "key_ring_name" {
@@ -80,7 +86,7 @@ variable "artifact_registry_project_id" {
   type        = string
   default     = null
   validation {
-    condition   = var.artifact_registry_project_id == null || can(regex("^[a-z]([-a-z0-9]{0,61}[a-z0-9])?$", var.artifact_registry_project_id))
+    condition     = var.artifact_registry_project_id == null || can(regex("^[a-z]([-a-z0-9]{0,61}[a-z0-9])?$", var.artifact_registry_project_id))
     error_message = "The artifact_registry_project_id is a GCP project name which starts with a lowercase letter, is 1 to 63 characters long, contains only lowercase letters, digits, and hyphens, and does not end with a hyphen."
   }
 }
