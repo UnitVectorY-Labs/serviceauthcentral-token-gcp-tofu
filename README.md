@@ -2,7 +2,7 @@
 
 # serviceauthcentral-token-gcp-tofu
 
-This OpenTofu module is used for deploying ServiceAuthCentral token API to GCP.
+OpenTofu module for deploying ServiceAuthCentral token API to Cloud Run in GCP
 
 ## Usage
 
