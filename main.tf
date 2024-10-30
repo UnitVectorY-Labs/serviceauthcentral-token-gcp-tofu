@@ -62,6 +62,8 @@ resource "google_cloud_run_v2_service" "serviceauthcentral-token" {
   name     = "${var.name}-token-${each.value}"
   ingress  = "INGRESS_TRAFFIC_ALL"
 
+  deletion_protection = false
+
   template {
     service_account = google_service_account.cloud_run_sa.email
 
